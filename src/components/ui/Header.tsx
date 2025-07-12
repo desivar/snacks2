@@ -1,3 +1,5 @@
+
+'use client'; // <-- Add this line
 import Link from 'next/link';
 import { FaShoppingCart, FaUserCircle, FaHamburger } from 'react-icons/fa';
 import { useState } from 'react';
