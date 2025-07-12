@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaHeart, FaStar } from 'react-icons/fa';
+import Image from 'next/image';
 
 const featuredSnacks = [
   {
@@ -75,10 +76,14 @@ export default function Home() {
                 ease: "easeInOut",
               }}
             >
-              <img 
-                src="/images/lunch.jpg" 
-                alt="Healthy lunchbox" 
+              <Image
+                src="/images/lunch.jpg"
+                alt="Healthy lunchbox"
+                width={400}
+                height={300}
                 className="w-full max-w-md mx-auto"
+                style={{ objectFit: 'cover' }}
+                priority
               />
             </motion.div>
           </div>
@@ -117,10 +122,13 @@ export default function Home() {
             {featuredSnacks.map((snack) => (
               <Card key={snack.id}>
                 <div className="relative">
-                  <img 
-                    src={snack.image} 
+                  <Image
+                    src={snack.image}
                     alt={snack.name}
+                    width={400}
+                    height={192}
                     className="w-full h-48 object-cover"
+                    style={{ objectFit: 'cover' }}
                   />
                   <button className="absolute top-2 right-2 bg-white p-2 rounded-full shadow-md">
                     <FaHeart className="text-gray-400 hover:text-red-500" />
