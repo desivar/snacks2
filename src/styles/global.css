@@ -1,6 +1,6 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/preflight" layer(base);
+@import "tailwindcss/utilities" layer(utilities);
+@import "tailwindcss/utilities" layer(utilities);
 
 :root {
   --mint: #A2D9B1;
@@ -17,14 +17,37 @@ body {
 
 @layer components {
   .btn-primary {
-    @apply bg-[var(--mint)] hover:bg-[#8bc89a] text-white font-medium py-2 px-4 rounded-full transition-all duration-200;
+    background-color: var(--mint);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.2s;
+  }
+  .btn-primary:hover {
+    background-color: #8bc89a;
   }
   
   .btn-secondary {
-    @apply bg-[var(--peach)] hover:bg-[#e6a57d] text-white font-medium py-2 px-4 rounded-full transition-all duration-200;
+    background-color: var(--peach);
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover {
+    background-color: #e6a57d;
   }
   
   .card {
-    @apply bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300;
+    background-color: #fff;
+    border-radius: 0.75rem;
+    box-shadow: 0 1px 3px 0 rgba(0,0,0,0.1), 0 1px 2px 0 rgba(0,0,0,0.06);
+    overflow: hidden;
+    transition: box-shadow 0.3s;
+  }
+  .card:hover {
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
   }
 }

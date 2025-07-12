@@ -1,3 +1,5 @@
+// Add this at the top of your file
+'use client'; // Required for framer-motion animations
 import { Header } from '@/components/ui/Header';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
