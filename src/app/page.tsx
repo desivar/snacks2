@@ -76,7 +76,7 @@ export default function Home() {
               }}
             >
               <img 
-                src="/images/hero-lunchbox.png" 
+                src="/images/lunch.jpg" 
                 alt="Healthy lunchbox" 
                 className="w-full max-w-md mx-auto"
               />
