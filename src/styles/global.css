@@ -8,7 +8,14 @@
   --sunny: #FFE194;
   --cream: #FFF9EC;
   --soft-gray: #E8E8E8;
+  
 }
+
+/* Search input focus style */
+input:focus {
+  box-shadow: 0 0 0 2px var(--mint);
+}
+
 
 body {
   background-color: var(--cream);
