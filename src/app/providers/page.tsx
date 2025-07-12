@@ -1,4 +1,4 @@
-import ProviderCard from '@/components/ProviderCard';
+import ProviderCard from '../../components/ProviderCard';
 
 export default function Providers() {
   const providers = [
