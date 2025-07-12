@@ -14,7 +14,7 @@ const featuredSnacks = [
     category: 'Nut Mixes',
     price: 5.99,
     rating: 4.5,
-    image: '/images/snacks/Almondcrunches.jpg'
+    image: '/images/snacks/Almondc runches.jpg'
   },
   {
     id: 2,
