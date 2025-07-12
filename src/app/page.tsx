@@ -14,7 +14,7 @@ const featuredSnacks = [
     category: 'Nut Mixes',
     price: 5.99,
     rating: 4.5,
-    image: '/images/snacks/almond-mix.jpg'
+    image: '/images/snacks/Almondcrunches.jpg'
   },
   {
     id: 2,
@@ -22,7 +22,7 @@ const featuredSnacks = [
     category: 'Dried Fruits',
     price: 4.49,
     rating: 4.2,
-    image: '/images/snacks/berry-mix.jpg'
+    image: '/images/snacks/OIP.weebp'
   },
   {
     id: 3,
@@ -30,7 +30,7 @@ const featuredSnacks = [
     category: 'Protein Bars',
     price: 3.99,
     rating: 4.7,
-    image: '/images/snacks/protein-bar.jpg'
+    image: '/images/snacks/word-image-152.png'
   },
 ];
 
