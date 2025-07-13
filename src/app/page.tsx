@@ -1,8 +1,8 @@
 // Add this at the top of your file
 'use client'; // Required for framer-motion animations
-import { Header } from '@/components/ui/Header';
-import { Button } from '@/components/ui/Button';
-import { Card } from '@/components/ui/Card';
+import { Header } from '@/components/Header';
+import { Button } from '@/components/Button';
+import { Card } from '@/components/Card';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaHeart, FaStar } from 'react-icons/fa';
 import Image from 'next/image';
