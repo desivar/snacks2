@@ -6,6 +6,9 @@ import { Card } from '@/components/Card';
 import { motion } from 'framer-motion';
 import { FaArrowRight, FaHeart, FaStar } from 'react-icons/fa';
 import Image from 'next/image';
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
 const featuredSnacks = [
   {
