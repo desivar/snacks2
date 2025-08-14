@@ -66,45 +66,241 @@ export default function Home() {
   return (
     <div className="min-h-screen">
       <Header />
-      
-      {/* Hero Section */}
-      <section className="bg-gradient-to-r from-[var(--mint)] to-[var(--peach)] py-16 px-4">
-        <div className="container mx-auto flex flex-col md:flex-row items-center">
-          <div className="md:w-1/2 mb-8 md:mb-0">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5 }}
-              className="text-4xl md:text-5xl font-bold text-white mb-4"
-            >
-              Build Your Perfect Healthy Lunchbox
-            </motion.h1>
-            <p className="text-xl text-white mb-8">
-              One delicious snack at a time
-            </p>
-            <Button>
-              Start Snacking <FaArrowRight className="ml-2" />
-            </Button>
-            <div className="md:w-1/2">
-  <Slider {...sliderSettings}>
-    {heroImages.map((image) => (
-      <div key={image.id}>
-        <Image
-          src={image.src}
-          alt={image.alt}
-          width={1000}
-          height={800}
-          className="w-full max-w-md mx-auto"
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-      </div>
+
+      <main>
+        {/* Hero Section with Animated Waves */}
+        <section className="relative bg-gradient-to-br from-[var(--mint)] via-[var(--peach)] to-pink-400 py-20 px-4 overflow-hidden">
+          {/* Animated Wave Background */}
+          <div className="absolute inset-0">
+    <svg 
+      className="absolute bottom-0 w-full h-32" 
+      viewBox="0 0 1440 320" 
+      preserveAspectRatio="none"
+    >
+      <motion.path
+        initial={{ d: "M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,176C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" }}
+        animate={{
+          d: [
+            "M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,133.3C672,139,768,181,864,197.3C960,213,1056,203,1152,176C1248,149,1344,107,1392,85.3L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+            "M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,101.3C672,107,768,149,864,165.3C960,181,1056,171,1152,144C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+            "M0,128L48,144C96,160,192,192,288,192C384,192,480,160,576,165.3C672,171,768,213,864,229.3C960,245,1056,235,1152,208C1248,181,1344,139,1392,117.3L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ]
+        }}
+        transition={{
+          duration: 8,
+          repeat: Infinity,
+          ease: "easeInOut"
+        }}
+        fill="rgba(255,255,255,0.1)"
+      />
+    </svg>
+    
+    {/* Additional decorative waves */}
+    <svg 
+      className="absolute bottom-0 w-full h-24" 
+      viewBox="0 0 1440 320" 
+      preserveAspectRatio="none"
+    >
+      <motion.path
+        initial={{ d: "M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z" }}
+        animate={{
+          d: [
+            "M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+            "M0,160L48,165.3C96,171,192,181,288,197.3C384,213,480,235,576,218.7C672,203,768,149,864,149.3C960,149,1056,203,1152,202.7C1248,203,1344,149,1392,122.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z",
+            "M0,224L48,229.3C96,235,192,245,288,261.3C384,277,480,299,576,282.7C672,267,768,213,864,213.3C960,213,1056,267,1152,266.7C1248,267,1344,213,1392,186.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ]
+        }}
+        transition={{
+          duration: 6,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: 2
+        }}
+        fill="rgba(255,255,255,0.05)"
+      />
+    </svg>
+
+    {/* Floating particles */}
+    {[...Array(15)].map((_, i) => (
+      <motion.div
+        key={i}
+        className="absolute w-2 h-2 bg-white rounded-full opacity-30"
+        style={{
+          left: `${Math.random() * 100}%`,
+          top: `${Math.random() * 100}%`,
+        }}
+        animate={{
+          y: [-20, 20],
+          x: [-10, 10],
+          opacity: [0.3, 0.7, 0.3]
+        }}
+        transition={{
+          duration: 3 + Math.random() * 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+          delay: Math.random() * 2
+        }}
+      />
     ))}
-  </Slider>
-</div>
+  </div>
+
+  <div className="container mx-auto relative z-10">
+    <div className="flex flex-col lg:flex-row items-center gap-12">
+      {/* Content Side */}
+      <div className="lg:w-1/2 text-center lg:text-left">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="mb-6"
+        >
+          <span className="inline-block px-4 py-2 bg-white/20 backdrop-blur-sm rounded-full text-white font-medium text-sm mb-4">
+            🌟 New Healthy Collection
+          </span>
+        </motion.div>
+
+        <motion.h1 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-5xl lg:text-7xl font-bold text-white mb-6 leading-tight"
+        >
+          Build Your
+          <span className="block bg-gradient-to-r from-yellow-300 to-orange-300 bg-clip-text text-transparent">
+            Perfect
+          </span>
+          Healthy Lunchbox
+        </motion.h1>
+
+        <motion.p 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.4 }}
+          className="text-xl lg:text-2xl text-white/90 mb-8 max-w-lg mx-auto lg:mx-0"
+        >
+          Discover premium snacks crafted with love. One delicious, nutritious bite at a time.
+        </motion.p>
+
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.6 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"
+        >
+          <motion.div
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            <Button className="bg-white text-[var(--mint)] hover:bg-gray-50 shadow-lg px-8 py-4 text-lg font-semibold">
+              Start Building <FaArrowRight className="ml-2" />
+            </Button>
+          </motion.div>
+          
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-8 py-4 text-lg font-semibold text-white border-2 border-white/30 rounded-lg backdrop-blur-sm hover:bg-white/10 transition-all"
+          >
+            Watch Demo
+          </motion.button>
+        </motion.div>
+
+        {/* Stats */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="flex justify-center lg:justify-start gap-8 mt-12"
+        >
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white">50K+</div>
+            <div className="text-white/70 text-sm">Happy Customers</div>
           </div>
-        </div>
-      </section>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white">100+</div>
+            <div className="text-white/70 text-sm">Healthy Snacks</div>
+          </div>
+          <div className="text-center">
+            <div className="text-3xl font-bold text-white">4.9★</div>
+            <div className="text-white/70 text-sm">Rating</div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Image Side */}
+      <motion.div 
+        initial={{ opacity: 0, x: 50 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{ duration: 1, delay: 0.3 }}
+        className="lg:w-1/2 relative"
+      >
+        {/* Main image container with floating effect */}
+        <motion.div
+          animate={{ 
+            y: [-10, 10, -10],
+            rotate: [-1, 1, -1]
+          }}
+          transition={{ 
+            duration: 6, 
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="relative"
+        >
+          {/* Decorative elements */}
+          <div className="absolute -top-4 -left-4 w-20 h-20 bg-yellow-300 rounded-full opacity-60 blur-xl"></div>
+          <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-pink-300 rounded-full opacity-40 blur-2xl"></div>
+          
+          {/* Image slider with enhanced styling */}
+          <div className="relative rounded-3xl overflow-hidden shadow-2xl bg-white/10 backdrop-blur-sm p-2">
+            <Slider {...{
+              ...sliderSettings,
+              dots: false,
+              arrows: false,
+            }}>
+              {heroImages.map((image, index) => (
+                <div key={image.id} className="relative">
+                  <motion.div
+                    initial={{ scale: 0.8, opacity: 0 }}
+                    animate={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.5 }}
+                  >
+                    <Image
+                      src={image.src}
+                      alt={image.alt}
+                      width={600}
+                      height={480}
+                      className="w-full h-80 lg:h-96 object-cover rounded-2xl"
+                      style={{ objectFit: 'cover' }}
+                      priority={index === 0}
+                    />
+                  </motion.div>
+                </div>
+              ))}
+            </Slider>
+          </div>
+
+          {/* Floating badges */}
+          <motion.div
+            animate={{ y: [-5, 5, -5] }}
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-6 right-8 bg-white rounded-full px-4 py-2 shadow-lg"
+          >
+            <span className="text-sm font-bold text-[var(--mint)]">🏆 #1 Rated</span>
+          </motion.div>
+
+          <motion.div
+            animate={{ y: [5, -5, 5] }}
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+            className="absolute bottom-8 -left-6 bg-white rounded-full px-4 py-2 shadow-lg"
+          >
+            <span className="text-sm font-bold text-orange-500">🥇 Premium Quality</span>
+          </motion.div>
+        </motion.div>
+      </motion.div>
+    </div>
+  </div>
+</section>
 
       {/* Categories Section */}
       <section className="py-12 px-4">
@@ -187,6 +383,7 @@ export default function Home() {
           </Button>
         </div>
       </section>
+      </main>
     </div>
   );
 }
