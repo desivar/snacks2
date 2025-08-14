@@ -12,8 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 const heroImages = [
   { id: 1, src: '/images/snacksgal.jpeg', alt: 'Healthy lunchbox' },
-  { id: 2, src: '/images/snacks/lunch.jpg', alt: 'Fresh snacks' },
-  { id: 3, src: '/images/snacks/lunch2.jpg', alt: 'Tasty treats' },
+  { id: 2, src: '/images/lunch.jpg', alt: 'Fresh snacks' },
+  { id: 3, src: '/images/lunch2.jpg', alt: 'Tasty treats' },
   // Add more images here
 ];
 
@@ -92,8 +92,8 @@ export default function Home() {
         <Image
           src={image.src}
           alt={image.alt}
-          width={600}
-          height={400}
+          width={1000}
+          height={800}
           className="w-full max-w-md mx-auto"
           style={{ objectFit: 'cover' }}
           priority
