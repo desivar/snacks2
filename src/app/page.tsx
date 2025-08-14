@@ -12,7 +12,8 @@ import "slick-carousel/slick/slick-theme.css";
 
 const heroImages = [
   { id: 1, src: '/images/snacksgal.jpeg', alt: 'Healthy lunchbox' },
-  { id: 2, src: '/images/snacks/hero2.jpg', alt: 'Fresh snacks' },
+  { id: 2, src: '/images/snacks/lunch.jpg', alt: 'Fresh snacks' },
+  { id: 3, src: '/images/snacks/lunch2.jpg', alt: 'Tasty treats' },
   // Add more images here
 ];
 
