@@ -10,6 +10,21 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 
+const heroImages = [
+  { id: 1, src: '/images/snacksgal.jpeg', alt: 'Healthy lunchbox' },
+  { id: 2, src: '/images/snacks/hero2.jpg', alt: 'Fresh snacks' },
+  // Add more images here
+];
+
+const sliderSettings = {
+  dots: true,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  autoplay: true,
+  autoplaySpeed: 3000,
+};
 const featuredSnacks = [
   {
     id: 1,
@@ -69,28 +84,23 @@ export default function Home() {
             <Button>
               Start Snacking <FaArrowRight className="ml-2" />
             </Button>
-          </div>
-          <div className="md:w-1/2">
-            <motion.div
-              animate={{
-                y: [0, -10, 0],
-              }}
-              transition={{
-                duration: 4,
-                repeat: Infinity,
-                ease: "easeInOut",
-              }}
-            >
-              <Image
-                src="/images/snacksgal.jpeg"
-                alt="Healthy lunchbox"
-                width={400}
-                height={300}
-                className="w-full max-w-md mx-auto"
-                style={{ objectFit: 'cover' }}
-                priority
-              />
-            </motion.div>
+            <div className="md:w-1/2">
+  <Slider {...sliderSettings}>
+    {heroImages.map((image) => (
+      <div key={image.id}>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={400}
+          height={300}
+          className="w-full max-w-md mx-auto"
+          style={{ objectFit: 'cover' }}
+          priority
+        />
+      </div>
+    ))}
+  </Slider>
+</div>
           </div>
         </div>
       </section>
