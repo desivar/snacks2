@@ -92,8 +92,8 @@ export default function Home() {
         <Image
           src={image.src}
           alt={image.alt}
-          width={400}
-          height={300}
+          width={600}
+          height={400}
           className="w-full max-w-md mx-auto"
           style={{ objectFit: 'cover' }}
           priority
