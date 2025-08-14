@@ -79,7 +79,7 @@ export default function Home() {
               }}
             >
               <Image
-                src="/images/lunch.jpg"
+                src="/images/snacksgal.jpeg"
                 alt="Healthy lunchbox"
                 width={400}
                 height={300}
