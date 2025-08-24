@@ -1,12 +1,12 @@
 // src/auth.ts
-import NextAuth from "next-auth";
+import { NextAuthOptions } from "next-auth"; // <-- Updated import
 import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "@/lib/db/connect";
 import { User } from "@/lib/models/User";
 import bcrypt from "bcryptjs";
-import type { NextAuthOptions } from "next-auth";
 
-export const config: NextAuthOptions = {
+// This is the core configuration object.
+export const authOptions: NextAuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
@@ -17,10 +17,10 @@ export const config: NextAuthOptions = {
       async authorize(credentials) {
         try {
           await connectToDB();
-          
+
           // Type guard for credentials
           if (!credentials?.email || !credentials?.password) return null;
-          
+
           const user = await User.findOne({ email: credentials.email });
           if (!user) return null;
 
@@ -28,7 +28,7 @@ export const config: NextAuthOptions = {
             credentials.password.toString(),
             user.password
           );
-          
+
           return passwordsMatch ? user : null;
         } catch (error) {
           console.error("Auth error:", error);
@@ -46,11 +46,13 @@ export const config: NextAuthOptions = {
       return token;
     },
     async session({ session, token }) {
-      session.user = token.user as any;
+      // You can keep the `as any` for now, but it's better to fix the types as explained previously.
+      session.user = token.user as any; 
       return session;
     }
   },
   secret: process.env.NEXTAUTH_SECRET,
-} satisfies NextAuthOptions;
+};
 
-export const { handlers, auth, signIn, signOut } = NextAuth(config);
+// This is where you export the options for the route handler to use.
+export default authOptions;
