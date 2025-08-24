@@ -1,7 +1,16 @@
-import type { NextConfig } from "next";
+// next.config.js
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  // ... other configs
+  webpack: (config: import('webpack').Configuration) => {
+    config.resolve = config.resolve || {};
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      crypto: require.resolve('crypto-browserify'),
+    };
+    return config;
+  },
 };
 
-export default nextConfig;
+module.exports = nextConfig;
