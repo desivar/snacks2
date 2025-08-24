@@ -4,9 +4,9 @@ import Credentials from "next-auth/providers/credentials";
 import { connectToDB } from "@/lib/db/connect";
 import { User } from "@/lib/models/User";
 import bcrypt from "bcryptjs";
-import type { NextAuthConfig } from "next-auth";
+import type { NextAuthOptions } from "next-auth";
 
-export const config = {
+export const config: NextAuthOptions = {
   providers: [
     Credentials({
       name: 'Credentials',
