@@ -51,6 +51,6 @@ export const config: NextAuthOptions = {
     }
   },
   secret: process.env.NEXTAUTH_SECRET,
-} satisfies NextAuthConfig;
+} satisfies NextAuthOptions;
 
 export const { handlers, auth, signIn, signOut } = NextAuth(config);
